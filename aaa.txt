@@ -128,7 +128,6 @@ end
 
 local lastmessage = {}
 local received = function(msg)
-	if string.find(msg,"Name") then return end
 	lastmessage = getMessage(msg)
 	if not lastmessage then return end
 	if type(lastmessage) == "string" then
