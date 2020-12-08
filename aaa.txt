@@ -125,7 +125,7 @@ function construct(messageTbl)
 	getProperties.Color = messageTbl.Color
 	return endm
 end
-local ChatLogs = game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatChannelParentFrame["Frame_MessageLogDisplay"].Scroller
+
 local lastmessage = {}
 local received = function(msg)
 	lastmessage = getMessage(msg)
@@ -136,9 +136,6 @@ local received = function(msg)
 		getProperties.Text = construct(lastmessage)
 	end
 	StarterGui:SetCore("ChatMakeSystemMessage", getProperties)
-end
-while wait(.1) do
-	
 end
 
 if syn_checkcaller then
