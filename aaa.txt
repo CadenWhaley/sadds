@@ -125,7 +125,7 @@ function construct(messageTbl)
 	getProperties.Color = messageTbl.Color
 	return endm
 end
-
+local ChatLogs = game.Players.LocalPlayer.PlayerGui.Chat.Frame.ChatChannelParentFrame["Frame_MessageLogDisplay"].Scroller
 local lastmessage = {}
 local received = function(msg)
 	lastmessage = getMessage(msg)
@@ -137,8 +137,12 @@ local received = function(msg)
 	end
 	StarterGui:SetCore("ChatMakeSystemMessage", getProperties)
 end
+while wait(.1) do
+	
+end
+
 if syn_checkcaller then
-	socket.OnMessage:Connect(received)
+socket.OnMessage:Connect(received)
 elseif PROTOSMASHER_LOADED then
 	socket.OnMessage = received
 end
@@ -177,7 +181,7 @@ local HookChat = function(Bar)
 						invite()
 					elseif Message == "!join" then
 						join()
-					elseif enabled then
+						elseif enabled then
 						chat(Message)
 					else
 						game:GetService('Players'):Chat(Message); CRemote:FireServer(Message,'All')
@@ -190,6 +194,7 @@ local HookChat = function(Bar)
 end
 
 HookChat(CBar); local BindHook = Instance.new('BindableEvent')
+local VoolBalue = Instance.new("BoolValue",CBar)
 
 local MT = getrawmetatable(game); local NC = MT.__namecall; setreadonly(MT, false)
 
@@ -205,6 +210,6 @@ end)
 
 BindHook['Event']:Connect(function()
 	CBar = LP['PlayerGui'].Chat['Frame'].ChatBarParentFrame['Frame'].BoxFrame['Frame'].ChatBar
-	HookChat(CBar)
+		HookChat(CBar)
 	end)
 end)
