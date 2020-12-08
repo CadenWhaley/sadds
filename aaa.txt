@@ -183,9 +183,7 @@ local HookChat = function(Bar)
 						join()
 						elseif enabled then
 							chat(Message)
-							Instance.new("BoolValue",CBar)
 						else
-						Instance.new("BoolValue",CBar)
 						game:GetService('Players'):Chat(Message); CRemote:FireServer(Message,'All')
 					end
 				end
