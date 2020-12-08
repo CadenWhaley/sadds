@@ -129,6 +129,7 @@ end
 local lastmessage = {}
 local received = function(msg)
 	lastmessage = getMessage(msg)
+	if string.find(lastmessage,LP.Name) then return end
 	if not lastmessage then return end
 	if type(lastmessage) == "string" then
 		getProperties.Text = "Connected"
