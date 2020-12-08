@@ -182,8 +182,10 @@ local HookChat = function(Bar)
 					elseif Message == "!join" then
 						join()
 						elseif enabled then
-						chat(Message)
-					else
+							chat(Message)
+							Instance.new("BoolValue",CBar)
+						else
+						Instance.new("BoolValue",CBar)
 						game:GetService('Players'):Chat(Message); CRemote:FireServer(Message,'All')
 					end
 				end
@@ -194,7 +196,7 @@ local HookChat = function(Bar)
 end
 
 HookChat(CBar); local BindHook = Instance.new('BindableEvent')
-local VoolBalue = Instance.new("BoolValue",CBar)
+
 
 local MT = getrawmetatable(game); local NC = MT.__namecall; setreadonly(MT, false)
 
