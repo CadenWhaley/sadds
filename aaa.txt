@@ -135,7 +135,6 @@ local received = function(msg)
 	else
 		getProperties.Text = construct(lastmessage)
 	end
-	if string.find(lastmessage,"Roles") then return end
 	StarterGui:SetCore("ChatMakeSystemMessage", getProperties)
 end
 if syn_checkcaller then
